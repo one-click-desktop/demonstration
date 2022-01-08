@@ -1,9 +1,10 @@
 version: "3.9"
 services:
   mqtt:
-    image: docker pull rabbitmq
+    image: rabbitmq:3-management-alpine
     ports:
-      - "5672:5672"
+      - 5672:5672
+      - 15672:15672
 
   virtsrv:
     build: modules/virtualization-server
