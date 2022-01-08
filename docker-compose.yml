@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  mqtt:
+    image: docker pull rabbitmq
+    ports:
+    - "5672:5672"
+
+  virtsrv:
+    build: modules/virtualization-server
+    volumes:
+    - /var/run/libvirt/libvirt_sock:/var/run/libvirt/libvirt_sock
+    - /var/lib/libvirt/:/var/lib/libvirt/
+    - /home/ksm/.vagrant.d/boxes/:/root/.vagrant.d/boxes/
+    depends_on:
+      - overseer
+    command: ["./wait-for-it.sh", "overseer:5000", "--", "/bin/bash", "entry_point.sh"]
+
+  overseer:
+    build: modules/overseer
+    ports:
+    - 5000:5000
+    - 5001:5001
+    depends_on:
+      - mqtt
+    command: ["./wait-for-it.sh", "mqtt:5672", "--", "/bin/bash", "entry_point.sh"]
+
+  admin-panel:
+    build: modules/admin-panel
+    ports:
+    - 4000:80
+    - 4001:443
+    depends_on:
+      - overseer
+
