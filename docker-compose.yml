@@ -1,14 +1,15 @@
 version: "3.9"
 services:
   mqtt:
-    image: docker pull rabbitmq
+    image: rabbitmq:3-management-alpine
     ports:
-    - "5672:5672"
+        - 5672:5672
+        - 15672:15672
 
   virtsrv:
     build: modules/virtualization-server
     volumes:
-    - /var/run/libvirt/libvirt_sock:/var/run/libvirt/libvirt_sock
+    - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock
     - /var/lib/libvirt/:/var/lib/libvirt/
     - /home/ksm/.vagrant.d/boxes/:/root/.vagrant.d/boxes/
     depends_on:
