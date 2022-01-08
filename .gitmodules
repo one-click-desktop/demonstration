@@ -1,0 +1,12 @@
+[submodule "configuration"]
+	path = configuration
+	url = https://github.com/one-click-desktop/configuration
+[submodule "modules/overseer"]
+	path = modules/overseer
+	url = https://github.com/one-click-desktop/overseer
+[submodule "modules/virtualization-server"]
+	path = modules/virtualization-server
+	url = https://github.com/one-click-desktop/virtualization-server
+[submodule "modules/admin-panel"]
+	path = modules/admin-panel
+	url = https://github.com/one-click-desktop/admin-panel
