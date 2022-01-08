@@ -39,13 +39,13 @@ Before running client application set:
 "basePath": "http://demo-machine-address:5000"
 "rabbitPath": "amqp://demo-machine-address"
 ```
-where `demo-machine-address` is addres of machine where demo is running.
+where `demo-machine-address` is address of machine where demo is running.
 
 
 # Using admin panel
 
 After running compose file admin panel should be available at http://demo-machine-address:4000,
-where `demo-machine-address` is addres of machine where demo is running.
+where `demo-machine-address` is address of machine where demo is running.
 
 
 
