@@ -4,8 +4,9 @@ Demonstration of simple system created from one overseer and one virtualization 
 Before you start remember about submodule initalization.
 
 ## Modules used in this demonstration
-1. [Overseer]()
-
+1. [Overseer](https://github.com/one-click-desktop/overseer)
+2. [VirtualizationServer](https://github.com/one-click-desktop/virtualization-server)
+3. [Administration panel](https://github.com/one-click-desktop/admin-panel)
 
 # Running demo
 
