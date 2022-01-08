@@ -9,7 +9,7 @@ services:
   virtsrv:
     build: modules/virtualization-server
     volumes:
-      - /var/run/libvirt/libvirt_sock:/var/run/libvirt/libvirt_sock
+      - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock
       - /var/lib/libvirt/:/var/lib/libvirt/
       - /home/ksm/.vagrant.d/boxes/:/root/.vagrant.d/boxes/
       - ./modules/virtualization-server/VirtualizationServer/config:/app/config
@@ -18,6 +18,8 @@ services:
     command:
       [
         "./wait-for-it.sh",
+        "-t",
+        "0",
         "overseer:5000",
         "--",
         "/bin/bash",
@@ -37,6 +39,8 @@ services:
     command:
       [
         "./wait-for-it.sh",
+        "-t",
+        "0",
         "mqtt:5672",
         "--",
         "/bin/bash",
