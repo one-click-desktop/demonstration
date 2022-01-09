@@ -22,7 +22,7 @@ services:
         "-t",
         "30",
         "-s",
-        "10.0.9.191:5000",
+        "10.0.9.191:5000", # change to host ip
         "--",
         "/bin/bash",
         "entry_point.sh"
@@ -64,7 +64,6 @@ services:
     depends_on:
       - overseer
 
-  
 networks:
   virtsrv-external:
     external: true

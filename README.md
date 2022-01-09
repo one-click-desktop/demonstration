@@ -19,7 +19,8 @@ To run this little demo:
 2. Modify variables and playbooks at `configuration` in way that *overseer* and *virt-srv* are the same system on which you will be running this demo.
 3. Configure your target system with `configuration/scripts/configure_all.sh`.
 4. Build virtualization server runtime docker container with `modules/virtualization-server/runtime_container/build.sh` (it will take some time).
-5. Build modules group with `docker-compose up --build` running at root of this repository.
+5. Modify [`docker-compose.yml`](/docker-compose.yml) - change IP address in `entrypont` of`virtsrv` to host IP. IP addresses in configuration used by VirtualizationServer also need to be changed to host IP (or network).
+6. Build modules group with `docker-compose up --build` running at root of this repository.
 
 After these steps there will be 4 containers:
 1. *mqtt* - RabbitMQ message broker used as internal and external communication broker.
@@ -52,13 +53,10 @@ Before running client application set:
 "basePath": "http://demo-machine-address:5000"
 "rabbitPath": "amqp://demo-machine-address"
 ```
-where `demo-machine-address` is address of machine where demo is running.
+where `demo-machine-address` is address of machine where demo is running. Recommended test user is `vagrant` with password `vagrant`.
 
 
 # Using Administration Panel
 
 After running compose file admin panel should be available at http://demo-machine-address:4000,
-where `demo-machine-address` is address of machine where demo is running.
-
-
-
+where `demo-machine-address` is address of machine where demo is running. Default login is `admin1` and password `admin1_pass`
