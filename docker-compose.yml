@@ -7,7 +7,6 @@ services:
       - 15672:15672
 
   virtsrv:
-    network_mode: "host"
     build: modules/virtualization-server
     volumes:
       - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock
@@ -22,7 +21,7 @@ services:
         "-t",
         "30",
         "-s",
-        "10.0.9.191:5000", # change to host ip
+        "overseer:5000",
         "--",
         "/bin/bash",
         "entry_point.sh"
@@ -63,8 +62,3 @@ services:
       - API_URL=http://localhost:5000
     depends_on:
       - overseer
-
-networks:
-  virtsrv-external:
-    external: true
-    name: host
