@@ -21,11 +21,12 @@ To run this little demo:
 4. Build virtualization server runtime docker container with `modules/virtualization-server/runtime_container/build.sh` (it will take some time).
 5. Build modules group with `docker-compose up --build` running at root of this repository.
 
-After these steps there will be 4 containers:
+After these steps there will be 5 containers:
 1. *mqtt* - RabbitMQ message broker used as internal and external communication broker.
-2. *overseer* - Overseer controlling sample VirtualizationServer.
-3. *virt-srv* - sample VirtualizationServer with 2 types of machines.
-4. *admin-panel* - web server where admin-panel is provided.
+2. *openldap* - Active Directory storing users and their home directories.
+3. *overseer* - Overseer controlling sample VirtualizationServer.
+4. *virt-srv* - sample VirtualizationServer with 2 types of machines.
+5. *admin-panel* - web server where admin-panel is provided.
 
 ## `build_and_run-demo.sh`
 
