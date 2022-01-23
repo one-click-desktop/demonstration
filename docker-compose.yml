@@ -1,5 +1,22 @@
 version: "3.9"
 services:
+  openldap:
+    image: osixia/openldap:latest
+    ports:
+      - 389:389
+      - 636:636
+    environment:
+      LDAP_DOMAIN: "example.org"
+      LDAP_BASE_DN: "DC=example,DC=org"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_READONLY_USER: "true"
+      LDAP_READONLY_USER_USERNAME: "readonly"
+      LDAP_READONLY_USER_PASSWORD: "readonly"
+    command: --copy-service --loglevel debug
+    volumes:
+      - ./configs/ldap/schema:/container/service/slapd/assets/config/bootstrap/schema/custom
+      - ./configs/ldap/ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+
   mqtt:
     image: rabbitmq:3-management-alpine
     ports:
@@ -37,6 +54,7 @@ services:
       - ./configs/overseer/overseer.pfx:/overseer/overseer.pfx
     depends_on:
       - mqtt
+      - openldap
     entrypoint:
       [
         "/wait-for-it.sh",
