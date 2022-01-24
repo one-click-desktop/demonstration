@@ -24,9 +24,10 @@ To run this little demo:
 After these steps there will be 5 containers:
 1. *mqtt* - RabbitMQ message broker used as internal and external communication broker.
 2. *openldap* - Active Directory storing users and their home directories.
-3. *overseer* - Overseer controlling sample VirtualizationServer.
-4. *virt-srv* - sample VirtualizationServer with 2 types of machines.
-5. *admin-panel* - web server where admin-panel is provided.
+3. *nfs* - NFS server hosting user directories.
+4. *overseer* - Overseer controlling sample VirtualizationServer.
+5. *virt-srv* - sample VirtualizationServer with 2 types of machines.
+6. *admin-panel* - web server where admin-panel is provided.
 
 ## `build_and_run-demo.sh`
 
@@ -42,6 +43,10 @@ where `demo-machine-address` is address of machine where demo is running.
 By default it is set to `http://localhost:5000`.
 
 By default Overseer loads production configuration inside container and Virtualization Server loads docker-test configuration (folder).
+
+LDAP server loads example users from `configs/ldap/ldif/ocd_test_users.ldif`.
+
+Folder hosted by NFS is set to `tmp/nfs`.
 
 # Using client application with demo
 

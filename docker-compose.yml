@@ -17,6 +17,16 @@ services:
       - ./configs/ldap/schema:/container/service/slapd/assets/config/bootstrap/schema/custom
       - ./configs/ldap/ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
 
+  nfs:
+    image: itsthenetwork/nfs-server-alpine:12
+    privileged: true
+    environment:
+      - SHARED_DIRECTORY=/nfs
+    volumes:
+      - /tmp/nfs:/nfs
+    ports:
+      - 2049:2049
+
   mqtt:
     image: rabbitmq:3-management-alpine
     ports:
@@ -32,6 +42,7 @@ services:
       - ./configs/virtsrv:/app/config
     depends_on:
       - overseer
+      - nfs
     entrypoint:
       [
         "/wait-for-it.sh",

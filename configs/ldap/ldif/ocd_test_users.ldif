@@ -40,6 +40,7 @@ dn: cn=admin1,ou=users,dc=example,dc=org
 objectClass: guid
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 objectClass: top
 cn: admin1
 gidNumber: 501
@@ -57,6 +58,7 @@ dn: cn=user1,ou=users,dc=example,dc=org
 objectClass: guid
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 objectClass: top
 cn: user1
 gidNumber: 502
@@ -74,6 +76,7 @@ dn: cn=user2,ou=users,dc=example,dc=org
 objectClass: guid
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 objectClass: top
 cn: user2
 gidNumber: 502
@@ -86,20 +89,3 @@ guid: 8f74c514-fa97-47dd-9381-c516ade64884
 loginShell: /bin/bash
 userPassword:: e0NSWVBUfSQ1JG5nd3lObWw1JEVxeGFuQ1lPNkVzNjk2TWdGcURtbGdsRTJOZ
  i5IdkJOaUpyeTkuaFRGUkI=
-
-dn: cn=vagrant,ou=users,dc=example,dc=org
-objectClass: guid
-objectClass: inetOrgPerson
-objectClass: posixAccount
-objectClass: top
-cn: vagrant
-gidNumber: 502
-homeDirectory: /home/users/vvagrant
-sn: vagrant
-uid: vagrant
-uidNumber: 1001
-givenName: vagrant
-guid: 79309338-7e62-4148-ba5a-899459ad0f37
-loginShell: /bin/bash
-userPassword:: e0NSWVBUfSQ1JHVlVTNlMVdVJGJTa0xhMnVYWEx6ajNsS1F6NHoyandLbi5CN
- mJCVkVBbmEzRTZlT1NUMDE=
