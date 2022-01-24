@@ -1,0 +1,1 @@
+/tmp/nfs/home 192.168.0.0/20(rw,async,no_subtree_check)

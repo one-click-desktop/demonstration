@@ -1,10 +1,8 @@
 version: '2'
 
 services:
-
   openldap:
     image: osixia/openldap:latest
-    container_name: openldap
     ports:
       - 389:389
       - 636:636
@@ -19,3 +17,15 @@ services:
     volumes:
       - ./schema/guid.schema:/container/service/slapd/assets/config/bootstrap/schema/custom/guid.schema
       - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+
+  nfs:
+    image: erichough/nfs-server
+    volumes:
+      - /tmp/nfs:/nfs
+      - ./exports.txt:/etc/exports:ro
+      - /lib/modules:/lib/modules:ro
+    cap_add:
+      - SYS_ADMIN
+      - SYS_MODULE
+    ports:
+      - 2049:2049
