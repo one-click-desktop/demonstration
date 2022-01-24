@@ -27,6 +27,18 @@ services:
     ports:
       - 2049:2049
 
+  proxy:
+    image: nginx:latest
+    ports:
+      - 3000:80
+      - 3001:443
+    volumes:
+      - ./nginx.crt:/etc/ssl/nginx.crt
+      - ./nginx.key:/etc/ssl/nginx.key
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - overseer
+
   mqtt:
     image: rabbitmq:3-management-alpine
     ports:
@@ -88,6 +100,6 @@ services:
       - ./configs/admin-panel/nginx.key:/etc/ssl/nginx.key
       - ./configs/admin-panel/nginx.conf:/etc/nginx/conf.d/default.conf
     environment:
-      - API_URL=http://localhost:5000
+      - API_URL=http://localhost:3000
     depends_on:
       - overseer
