@@ -20,4 +20,6 @@
     * `base shadow` - DN userów
 5. Ustawić permy do `/etc/nslcd.conf` na `0600`.
 6. Enable i restart `nslcd.service`.
-7. Zmodyfikować [PAMa](https://wiki.archlinux.org/title/LDAP_authentication#PAM_Configuration)
+7. Zmodyfikować [PAMa](https://wiki.archlinux.org/title/LDAP_authentication#PAM_Configuration) (wraz z tworzeniem folderu domowego).
+8. Zainstalować paczkę `nfs-utils`.
+9. Zamontować NFS (Ansible).
