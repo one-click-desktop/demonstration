@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    ports:
+      - 389:389
+      - 636:636
+    environment:
+      LDAP_DOMAIN: "example.org"
+      LDAP_BASE_DN: "DC=example,DC=org"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_READONLY_USER: "true"
+      LDAP_READONLY_USER_USERNAME: "readonly"
+      LDAP_READONLY_USER_PASSWORD: "readonly"
+    command: --copy-service --loglevel debug
+    volumes:
+      - ./schema/guid.schema:/container/service/slapd/assets/config/bootstrap/schema/custom/guid.schema
+      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
