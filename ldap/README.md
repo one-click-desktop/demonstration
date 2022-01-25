@@ -12,8 +12,8 @@
 4. Plik `/etc/nslcd.conf`: Zmienić klucze, aby pasowały do AD (Ansible):
     * `base`
     * `uri`
-    * `binddn` - DN readme
-    * `bindpw` - hasło readme
+    * `binddn` - DN readonly
+    * `bindpw` - hasło readonly
     * `rootpwmoddn` - DN admina
     * `base group` - DN grup
     * `base passwd` - DN userów
