@@ -44,7 +44,7 @@ objectClass: shadowAccount
 objectClass: top
 cn: admin1
 gidNumber: 501
-homeDirectory: /home/admin1
+homeDirectory: /home2/admin1
 sn: admin1
 uid: admin1
 uidNumber: 1004
@@ -62,7 +62,7 @@ objectClass: shadowAccount
 objectClass: top
 cn: user1
 gidNumber: 502
-homeDirectory: /home/user1
+homeDirectory: /home2/user1
 sn: user1
 uid: user1
 uidNumber: 1002
@@ -80,7 +80,7 @@ objectClass: shadowAccount
 objectClass: top
 cn: user2
 gidNumber: 502
-homeDirectory: /home/user2
+homeDirectory: /home2/user2
 sn: user2
 uid: user2
 uidNumber: 1003
