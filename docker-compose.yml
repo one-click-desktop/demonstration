@@ -33,9 +33,9 @@ services:
       - 3000:80
       - 3001:443
     volumes:
-      - ./nginx.crt:/etc/ssl/nginx.crt
-      - ./nginx.key:/etc/ssl/nginx.key
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./configs/proxy/nginx.crt:/etc/ssl/nginx.crt
+      - ./configs/proxy/nginx.key:/etc/ssl/nginx.key
+      - ./configs/proxy/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - overseer
 
@@ -52,6 +52,7 @@ services:
       - /var/lib/libvirt/:/var/lib/libvirt/
       - ${HOME}/.vagrant.d/boxes/:/root/.vagrant.d/boxes/
       - ./configs/virtsrv:/app/config
+      - ~/.vagrant.d/boxes/smogork-VAGRANTSLASH-archlinux-rdp/0.2.1/libvirt/nvram.fd:/app/nvram.fd
     depends_on:
       - overseer
       - nfs
