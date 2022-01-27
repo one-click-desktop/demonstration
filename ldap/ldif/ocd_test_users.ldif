@@ -1,0 +1,91 @@
+version: 1
+
+# dn: dc=example,dc=org
+# objectClass: dcObject
+# objectClass: organization
+# objectClass: top
+# dc: example
+# o: Example Inc.
+
+# dn: cn=readonly,dc=example,dc=org
+# objectClass: organizationalRole
+# objectClass: simpleSecurityObject
+# cn: readonly
+# userPassword:: e1NTSEF9V0RoU01NakNaV3VzeUFDTUJVUk1UT2d3R2swVWhoVGU=
+# description: LDAP read only user
+
+dn: ou=groups,dc=example,dc=org
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+dn: cn=ocd_admin,ou=groups,dc=example,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: ocd_admin
+gidNumber: 501
+
+dn: cn=ocd_user,ou=groups,dc=example,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: ocd_user
+gidNumber: 502
+
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+objectClass: top
+ou: users
+
+dn: cn=admin1,ou=users,dc=example,dc=org
+objectClass: guid
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: top
+cn: admin1
+gidNumber: 501
+homeDirectory: /home/admin1
+sn: admin1
+uid: admin1
+uidNumber: 1004
+givenName: admin1
+guid: 8e3fab82-c7f7-4b48-91ed-9dcaa0e4dc69
+loginShell: /bin/bash
+userPassword:: e0NSWVBUfSQ1JDVjdVByUEtzJDR2WjhZTlFQQlJtSmxSZW45d0ZoRnFOcWVvT
+ 3g2YlU5VXE2TFFDWkpOQjg=
+
+dn: cn=user1,ou=users,dc=example,dc=org
+objectClass: guid
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: top
+cn: user1
+gidNumber: 502
+homeDirectory: /home/user1
+sn: user1
+uid: user1
+uidNumber: 1002
+givenName: user1
+guid: e8c5ea87-852b-4b84-a563-d360ac708ed2
+loginShell: /bin/bash
+userPassword:: e0NSWVBUfSQ1JFlpUUFFSmcvJHpjcDVQajMud0E1S2J5cXZMUS5ja1ZFWWdKc
+ GRqaU9CUGVaaW1wUjV0Ti8=
+
+dn: cn=user2,ou=users,dc=example,dc=org
+objectClass: guid
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: top
+cn: user2
+gidNumber: 502
+homeDirectory: /home/user2
+sn: user2
+uid: user2
+uidNumber: 1003
+givenName: user2
+guid: 8f74c514-fa97-47dd-9381-c516ade64884
+loginShell: /bin/bash
+userPassword:: e0NSWVBUfSQ1JG5nd3lObWw1JEVxeGFuQ1lPNkVzNjk2TWdGcURtbGdsRTJOZ
+ i5IdkJOaUpyeTkuaFRGUkI=
